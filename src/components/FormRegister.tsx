@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 
 const FormRegister = () => {
-  useEffect(() => {
+  const sendTestData = useCallback(() => {
     fetch("http://roud-map", {
       method: "POST",
       headers: {
