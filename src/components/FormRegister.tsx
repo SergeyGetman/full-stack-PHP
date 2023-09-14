@@ -22,25 +22,49 @@ const FormRegister = () => {
 
   return (
     <>
-      <Typography>Hello Register</Typography>
       <AvtorizedPage>
-        <Box>Hello This is form</Box>
         <AvtorizedPageBlockContent>
           <img src={require("../static/images/aqua.svg").default} alt="AQUA" />
-        </AvtorizedPageBlockContent>
-        <Box>Hello This is form</Box>
-        <Box>Hello This is form</Box>
 
-        <AvtorizedPageBlockContentForm>
-          <form action="">
-            <Grid container spacing={2}>
-              <Grid item xs={8}>
-                <TextField>qwe</TextField>
-                <InputComponent variant="outlined" label="Outlined" id="23" />
+          <AvtorizedPageBlockContentForm>
+            <Typography
+              variant="h3"
+              sx={{
+                fontFamily: "cursive",
+                color: "#2b392fe6",
+                textAlign: "center",
+              }}
+            >
+              Registration
+            </Typography>
+            <form action="">
+              <Grid
+                container
+                columns={2}
+                rowSpacing={3}
+                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                item
+              >
+                <Grid xs={12} md={2} lg={2} item>
+                  <TextField>qwe</TextField>
+                  <InputComponent variant="outlined" label="Outlined" id="23" />
+                </Grid>
+                <Grid xs={12} md={2} lg={2} item>
+                  <TextField>qwe</TextField>
+                  <InputComponent variant="outlined" label="Outlined" id="21" />
+                </Grid>
+                <Grid xs={12} md={2} lg={2} item>
+                  <TextField>qwe</TextField>
+                  <InputComponent variant="outlined" label="Outlined" id="20" />
+                </Grid>
+                <Grid xs={12} md={2} lg={2} item>
+                  <TextField>qwe</TextField>
+                  <InputComponent variant="outlined" label="Outlined" id="20" />
+                </Grid>
               </Grid>
-            </Grid>
-          </form>
-        </AvtorizedPageBlockContentForm>
+            </form>
+          </AvtorizedPageBlockContentForm>
+        </AvtorizedPageBlockContent>
       </AvtorizedPage>
     </>
   );

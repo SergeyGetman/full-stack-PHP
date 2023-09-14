@@ -20,9 +20,16 @@ export const AvtorizedPageBlockContent = styled(Box)(({ theme }) => ({
 }));
 
 export const AvtorizedPageBlockContentForm = styled(Box)(({ theme }) => ({
+  display: "inline-flex",
   height: "700px",
-  width: "500px",
+  width: "100%",
   background:
-    "linear-gradient(312deg, rgba(212, 91, 120, 0.90) -21.39%, rgba(75, 56, 98, 0.90) 75.84%);\n" +
+    "linear-gradient(312deg, rgba(212, 91, 120, 0.90) -21.39%, rgba(255 255 255 / 90%) 75.84%);\n" +
     "backdrop-filter: blur(25px)",
+
+  "& form": {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
