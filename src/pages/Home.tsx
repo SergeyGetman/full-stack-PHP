@@ -26,18 +26,19 @@ const Home = () => {
           src={require("../static/images/bg-image.svg").default}
           alt="home-logo"
         />
-        <HomeButtonNavigateStyle>
+        <Box>
           <ButtonComponent
             variant="outlined"
             text="Sign In"
             eventClick={goToRegistration}
+            classNM={<HomeButtonNavigateStyle />}
           />
           <ButtonComponent
             variant="outlined"
             text="Sign Up"
             eventClick={goToRegistration}
           />
-        </HomeButtonNavigateStyle>
+        </Box>
       </HomeContainerStyle>
     </>
   );

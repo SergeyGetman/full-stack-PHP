@@ -24,11 +24,13 @@ export const HomeContainerStyle = styled(Box)(({ theme }) => ({
     },
   },
 
-  button: {
-    animation: "slidein 2s infinite",
-    margin: "20px",
-    color: "white",
-    fontFamily: "Open Sans",
+  "&:first-child": {
+    button: {
+      animation: "slidein 2s infinite",
+      margin: "20px",
+      color: "white",
+      fontFamily: "Open Sans",
+    },
   },
 
   img: {
@@ -37,7 +39,13 @@ export const HomeContainerStyle = styled(Box)(({ theme }) => ({
 }));
 
 export const HomeButtonNavigateStyle = styled(Box)(({ theme }) => ({
-  justifyContent: "end",
-  alignItems: "self-end",
-  display: "flex",
+  height: "200px",
+  marginBottom: "auto",
+  backgroundColor: "red",
+  color: "yellow",
+  button: {
+    animationFillMode: "forwards",
+    backgroundColor: "red",
+    color: "yellow",
+  },
 }));

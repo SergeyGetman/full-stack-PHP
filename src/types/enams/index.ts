@@ -4,3 +4,9 @@ export enum Direction {
   Left,
   Right,
 }
+
+export enum TextFieldVariant {
+  OUTLINED = "outlined",
+  STANDARD = "standard",
+  FILLED = "filled",
+}
