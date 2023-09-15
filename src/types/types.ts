@@ -28,8 +28,6 @@ export interface IButton {
   children?: ReactNode;
 }
 
-//id, label, variant, icons, size, value, handlerChange
-
 type ILabel = "Outlined" | "Filled" | "Standard";
 type ISizes = "small" | "medium" | undefined;
 type IIcon = "inherit" | "large" | "medium" | "small " | string;
