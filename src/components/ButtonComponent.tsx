@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { Box, Button } from "@mui/material";
-import { IButton } from "../types/types";
+import { MuiButtonProps } from "../types/types";
+import { ButtonMuiStyle } from "../layout/styled-component/ButtonMui.styled";
 
-export const ButtonComponent: FC<IButton> = ({
+export const ButtonComponent: FC<MuiButtonProps> = ({
   type,
   variant,
   text,
@@ -12,15 +13,17 @@ export const ButtonComponent: FC<IButton> = ({
 }) => {
   return (
     <>
-      <Button
-        type={type}
-        variant={variant}
-        onClick={eventClick}
-        className={classNM}
-      >
-        {text}
-      </Button>
-      <Box>{children}</Box>
+      <ButtonMuiStyle>
+        <Button
+          type={type}
+          variant={variant}
+          onClick={eventClick}
+          className={classNM}
+        >
+          {text}
+        </Button>
+        <Box>{children}</Box>
+      </ButtonMuiStyle>
     </>
   );
 };

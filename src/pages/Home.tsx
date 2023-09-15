@@ -5,7 +5,6 @@ import {
   HomeContainerStyle,
 } from "../layout/styled-component/HomeContainer.style";
 import ButtonComponent from "../components/ButtonComponent";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -18,6 +17,7 @@ const Home = () => {
     <>
       <HomeContainerStyle>
         <ButtonComponent
+          label="Outlined"
           variant="outlined"
           text="go to registration"
           eventClick={() => alert("ssss")}
@@ -28,12 +28,14 @@ const Home = () => {
         />
         <Box>
           <ButtonComponent
+            label="Outlined"
             variant="outlined"
             text="Sign In"
             eventClick={goToRegistration}
             classNM={<HomeButtonNavigateStyle />}
           />
           <ButtonComponent
+            label="Outlined"
             variant="outlined"
             text="Sign Up"
             eventClick={goToRegistration}

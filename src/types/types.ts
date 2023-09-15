@@ -53,14 +53,14 @@ export interface IInput {
 }
 
 export type MuiButtonProps = {
-  variant?: "outlined" | "contained" | "tertiary" | "text";
-  size?: "small" | "medium" | "large";
-  color?: "primary" | "secondary" | "error";
+  variant?: IVariantBTN;
+  size?: ISizes;
+  color?: IColor;
   isDisabled?: boolean;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  label: string;
-  type?: "button" | "reset" | "submit";
+  label: ILabel;
+  type?: IButtonEvent;
   isStopPropagation?: boolean;
   fullWidth?: boolean;
   onClick?: (event: React.MouseEvent<any, MouseEvent>) => void;

@@ -6,6 +6,7 @@ import {
   AvtorizedPageBlockContentForm,
 } from "../layout/styled-component/Autorized.style";
 import InputComponent from "./InputComponent";
+import ButtonComponent from "./ButtonComponent";
 
 const FormRegister = () => {
   const sendTestData = useCallback(() => {
@@ -62,6 +63,9 @@ const FormRegister = () => {
                   <InputComponent variant="outlined" label="Outlined" id="20" />
                 </Grid>
               </Grid>
+              <ButtonComponent variant="text" label="Filled" color="success">
+                SUBMIT
+              </ButtonComponent>
             </form>
           </AvtorizedPageBlockContentForm>
         </AvtorizedPageBlockContent>

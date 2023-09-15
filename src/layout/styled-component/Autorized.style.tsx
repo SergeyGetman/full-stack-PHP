@@ -20,7 +20,7 @@ export const AvtorizedPageBlockContent = styled(Box)(({ theme }) => ({
 }));
 
 export const AvtorizedPageBlockContentForm = styled(Box)(({ theme }) => ({
-  display: "inline-flex",
+  display: "grid",
   height: "700px",
   width: "100%",
   background:
