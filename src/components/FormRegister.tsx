@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect } from "react";
-import { Box, Grid, TextField, Typography } from "@mui/material";
+import React, { useCallback } from "react";
+import { Grid, TextField, Typography } from "@mui/material";
 import {
   AvtorizedPage,
   AvtorizedPageBlockContent,
