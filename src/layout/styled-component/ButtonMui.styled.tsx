@@ -1,8 +1,9 @@
 import { Box, styled } from "@mui/material";
 
 export const ButtonMuiStyle = styled(Box)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  opacity: ".6",
+  height: "50px",
+  fontWeight: "bold",
+  fontSize: "40px",
+  fontFamily: "fantasy",
+  color: "white",
 }));

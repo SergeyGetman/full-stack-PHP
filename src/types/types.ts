@@ -2,6 +2,8 @@ import React, { ReactComponentElement, ReactNode, ReactPropTypes } from "react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import InputComponent from "../components/InputComponent";
 import { TextFieldVariants, TypographyProps } from "@mui/material";
+import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 export interface INavigate {
   path: string;
@@ -28,7 +30,7 @@ export interface IButton {
   children?: ReactNode;
 }
 
-type ILabel = "Outlined" | "Filled" | "Standard";
+type ILabel = "Outlined" | "Filled" | "Standard" | string;
 type ISizes = "small" | "medium" | undefined;
 type IIcon = "inherit" | "large" | "medium" | "small " | string;
 type IColor =
@@ -40,8 +42,11 @@ type IColor =
   | "warning"
   | undefined;
 
+type ITypeRegister<T extends FieldValues> = UseFormRegister<T>;
+
 export interface IInput {
   id: string;
+  name?: string;
   label: ILabel;
   variant: TextFieldVariants;
   icon?: IIcon | React.ReactNode;
@@ -50,13 +55,20 @@ export interface IInput {
   value?: EventTarget | string | number;
   handlerChange?: () => void;
   disabled?: boolean;
+  children?: React.ReactNode;
+  required?: boolean;
+  inputRef?: React.Ref<any>;
+  register?: ITypeRegister<any> | undefined;
+  errors?: UseFormRegisterReturn<string>;
+  registerField?: (fieldName: string, value: any) => void;
+  args?: any | any[];
 }
-
 export type MuiButtonProps = {
   variant?: IVariantBTN;
   size?: ISizes;
   color?: IColor;
   isDisabled?: boolean;
+  text: string;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   label: ILabel;
@@ -65,4 +77,11 @@ export type MuiButtonProps = {
   fullWidth?: boolean;
   onClick?: (event: React.MouseEvent<any, MouseEvent>) => void;
   [x: string]: any;
+};
+
+export type IFormData = {
+  name: string;
+  email: string;
+  login: string;
+  password: string;
 };

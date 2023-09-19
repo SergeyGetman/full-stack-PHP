@@ -1,14 +1,45 @@
-import React, { useCallback } from "react";
-import { Grid, TextField, Typography } from "@mui/material";
+import React, { useCallback, useRef } from "react";
+import { Grid, OutlinedInput, TextField, Typography } from "@mui/material";
 import {
   AvtorizedPage,
   AvtorizedPageBlockContent,
   AvtorizedPageBlockContentForm,
 } from "../layout/styled-component/Autorized.style";
-import InputComponent from "./InputComponent";
 import ButtonComponent from "./ButtonComponent";
+import { useForm } from "react-hook-form";
+import { IFormData, IInput } from "../types/types";
+import InputComponent from "./InputComponent";
 
 const FormRegister = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+
+    formState: { errors },
+  } = useForm<IFormData>({
+    defaultValues: {
+      login: "",
+      name: "",
+      email: "",
+      password: "",
+    },
+  });
+
+  const [logOne, logTwo, logThree, logFour] = watch([
+    "login",
+    "name",
+    "email",
+    "password",
+  ]);
+
+  // console.log("logOne", logOne);
+  // console.log("logTwo", logTwo);
+  // console.log("logThree", logThree);
+  // console.log("logFour", logFour);
+
+  const ref = useRef(null);
+
   const sendTestData = useCallback(() => {
     fetch("http://roud-map", {
       method: "POST",
@@ -20,6 +51,13 @@ const FormRegister = () => {
       .then((r) => r.json())
       .then((data) => console.log("RESPONSE", data));
   }, []);
+
+  const onSubmitForm = (data: IFormData) => console.log(data);
+
+  const restParam = {
+    additionalParam1: "value1",
+    additionalParam2: "value2",
+  };
 
   return (
     <>
@@ -38,32 +76,64 @@ const FormRegister = () => {
             >
               Registration
             </Typography>
-            <form action="">
-              <Grid
-                container
-                columns={2}
-                rowSpacing={3}
-                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                item
-              >
-                <Grid xs={12} md={2} lg={2} item>
-                  <TextField>qwe</TextField>
-                  <InputComponent variant="outlined" label="Outlined" id="23" />
+            <form action="" onSubmit={handleSubmit(onSubmitForm)}>
+              <Grid container spacing={1} columnSpacing={2} rowSpacing={12}>
+                <Grid item xs={6} md={6}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                      <TextField
+                        label="Standard"
+                        variant="outlined"
+                        id="20"
+                        {...register("name")}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <input defaultValue="login" {...register("login")} />
+                      {
+                        <InputComponent
+                          variant="outlined"
+                          label="Standard"
+                          id="name"
+                          register={register}
+                          required
+                        />
+                      }
+                    </Grid>
+                  </Grid>
                 </Grid>
-                <Grid xs={12} md={2} lg={2} item>
-                  <TextField>qwe</TextField>
-                  <InputComponent variant="outlined" label="Outlined" id="21" />
-                </Grid>
-                <Grid xs={12} md={2} lg={2} item>
-                  <TextField>qwe</TextField>
-                  <InputComponent variant="outlined" label="Outlined" id="20" />
-                </Grid>
-                <Grid xs={12} md={2} lg={2} item>
-                  <TextField>qwe</TextField>
-                  <InputComponent variant="outlined" label="Outlined" id="20" />
+
+                <Grid item xs={6} md={6}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                      <InputComponent
+                        variant="outlined"
+                        label="Standard"
+                        id="email"
+                        register={register}
+                        required
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <InputComponent
+                        variant="outlined"
+                        label="Standard"
+                        id="password"
+                        register={register}
+                        required
+                      />
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
-              <ButtonComponent variant="text" label="Filled" color="success">
+
+              <ButtonComponent
+                variant="outlined"
+                label="Filled"
+                color="success"
+                type="submit"
+                text="SUBMIT"
+              >
                 SUBMIT
               </ButtonComponent>
             </form>

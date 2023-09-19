@@ -8,7 +8,7 @@ export const ButtonComponent: FC<MuiButtonProps> = ({
   variant,
   text,
   classNM,
-  eventClick,
+  onClick,
   children,
 }) => {
   return (
@@ -17,7 +17,7 @@ export const ButtonComponent: FC<MuiButtonProps> = ({
         <Button
           type={type}
           variant={variant}
-          onClick={eventClick}
+          onClick={onClick}
           className={classNM}
         >
           {text}
