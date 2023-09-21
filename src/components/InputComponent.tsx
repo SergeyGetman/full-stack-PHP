@@ -22,7 +22,6 @@ const InputComponent: FC<IInput> = forwardRef(
     },
     ref
   ) => {
-    console.log("args", args);
     return (
       <>
         <TextField

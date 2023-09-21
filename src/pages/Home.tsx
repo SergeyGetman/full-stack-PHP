@@ -6,6 +6,7 @@ import {
 } from "../layout/styled-component/HomeContainer.style";
 import ButtonComponent from "../components/ButtonComponent";
 import { useNavigate } from "react-router-dom";
+import MainContainer from "../components/MainContainer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,33 +16,35 @@ const Home = () => {
 
   return (
     <>
-      <HomeContainerStyle>
-        <ButtonComponent
-          label="Outlined"
-          variant="outlined"
-          text="go to registration"
-          eventClick={() => alert("ssss")}
-        />
-        <img
-          src={require("../static/images/bg-image.svg").default}
-          alt="home-logo"
-        />
-        <Box>
+      <MainContainer args={{ checkVisible: false }}>
+        <HomeContainerStyle>
           <ButtonComponent
             label="Outlined"
             variant="outlined"
-            text="Sign In"
-            eventClick={goToRegistration}
-            classNM={<HomeButtonNavigateStyle />}
+            text="go to registration"
+            eventClick={() => alert("ssss")}
           />
-          <ButtonComponent
-            label="Outlined"
-            variant="outlined"
-            text="Sign Up"
-            eventClick={goToRegistration}
+          <img
+            src={require("../static/images/bg-image.svg").default}
+            alt="home-logo"
           />
-        </Box>
-      </HomeContainerStyle>
+          <Box>
+            <ButtonComponent
+              label="Outlined"
+              variant="outlined"
+              text="Sign In"
+              eventClick={goToRegistration}
+              classNM={<HomeButtonNavigateStyle />}
+            />
+            <ButtonComponent
+              label="Outlined"
+              variant="outlined"
+              text="Sign Up"
+              eventClick={goToRegistration}
+            />
+          </Box>
+        </HomeContainerStyle>
+      </MainContainer>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { ReactComponentElement, ReactNode, ReactPropTypes } from "react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import InputComponent from "../components/InputComponent";
-import { TextFieldVariants, TypographyProps } from "@mui/material";
+import { PropTypes, TextFieldVariants, TypographyProps } from "@mui/material";
 import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
 import { UseFormRegisterReturn } from "react-hook-form";
 
@@ -85,3 +85,8 @@ export type IFormData = {
   login: string;
   password: string;
 };
+
+export interface IMainContainer {
+  children: ReactNode;
+  args?: Record<keyof ReactPropTypes, React.FC> | Record<string, any>;
+}

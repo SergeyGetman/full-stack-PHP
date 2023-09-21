@@ -2,9 +2,7 @@ import { Box, keyframes, styled } from "@mui/material";
 
 export const HomeContainerStyle = styled(Box)(({ theme }) => ({
   width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  display: "grid",
   borderRadius: "8px",
   boxShadow: "5px 5px 5px 5px #af756d",
   background: "linear-gradient(252deg, #D45B78 0.01%, #4B3862 101.01%)",

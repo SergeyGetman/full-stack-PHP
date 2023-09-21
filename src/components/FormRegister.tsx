@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { Grid, OutlinedInput, TextField, Typography } from "@mui/material";
 import {
   AvtorizedPage,
@@ -9,12 +9,14 @@ import ButtonComponent from "./ButtonComponent";
 import { useForm } from "react-hook-form";
 import { IFormData, IInput } from "../types/types";
 import InputComponent from "./InputComponent";
+import MainContainer from "./MainContainer";
 
 const FormRegister = () => {
   const {
     register,
     handleSubmit,
     watch,
+    setFocus,
 
     formState: { errors },
   } = useForm<IFormData>({
@@ -25,6 +27,10 @@ const FormRegister = () => {
       password: "",
     },
   });
+
+  useEffect(() => {
+    setFocus("name");
+  }, [setFocus]);
 
   const [logOne, logTwo, logThree, logFour] = watch([
     "login",
@@ -38,108 +44,112 @@ const FormRegister = () => {
   // console.log("logThree", logThree);
   // console.log("logFour", logFour);
 
-  const ref = useRef(null);
+  const refTab = useRef(null);
 
-  const sendTestData = useCallback(() => {
-    fetch("http://roud-map", {
+  const sendTestData = useCallback((data: IFormData) => {
+    console.log("DATA INSIDE CALLBACK", data);
+    fetch("http://roud-map/register", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: JSON.stringify({ action: 1 }),
+      headers: { "Content-Type": "application/json" },
+      //@ts-ignore
+      body: JSON.stringify(data),
     })
       .then((r) => r.json())
       .then((data) => console.log("RESPONSE", data));
   }, []);
 
-  const onSubmitForm = (data: IFormData) => console.log(data);
-
-  const restParam = {
-    additionalParam1: "value1",
-    additionalParam2: "value2",
+  const onSubmitForm = (data: IFormData) => {
+    sendTestData(data);
+    console.log("DATA", data);
   };
 
   return (
     <>
-      <AvtorizedPage>
-        <AvtorizedPageBlockContent>
-          <img src={require("../static/images/aqua.svg").default} alt="AQUA" />
+      <MainContainer>
+        <AvtorizedPage>
+          <AvtorizedPageBlockContent>
+            <img
+              src={require("../static/images/aqua.svg").default}
+              alt="AQUA"
+            />
 
-          <AvtorizedPageBlockContentForm>
-            <Typography
-              variant="h3"
-              sx={{
-                fontFamily: "cursive",
-                color: "#2b392fe6",
-                textAlign: "center",
-              }}
-            >
-              Registration
-            </Typography>
-            <form action="" onSubmit={handleSubmit(onSubmitForm)}>
-              <Grid container spacing={1} columnSpacing={2} rowSpacing={12}>
-                <Grid item xs={6} md={6}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                      <TextField
-                        label="Standard"
-                        variant="outlined"
-                        id="20"
-                        {...register("name")}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <input defaultValue="login" {...register("login")} />
-                      {
+            <AvtorizedPageBlockContentForm>
+              <Typography
+                variant="h3"
+                sx={{
+                  fontFamily: "cursive",
+                  color: "#2b392fe6",
+                  textAlign: "center",
+                }}
+              >
+                Registration
+              </Typography>
+              <form action="" onSubmit={handleSubmit(onSubmitForm)}>
+                <Grid container spacing={1} columnSpacing={2} rowSpacing={12}>
+                  <Grid item xs={6} md={6}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
                         <InputComponent
                           variant="outlined"
-                          label="Standard"
+                          label="name"
                           id="name"
+                          register={register}
+                          inputRef={refTab}
+                          required
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        {
+                          <InputComponent
+                            variant="outlined"
+                            label="login"
+                            id="login"
+                            register={register}
+                            required
+                          />
+                        }
+                      </Grid>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item xs={6} md={6}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <InputComponent
+                          variant="outlined"
+                          label="email"
+                          id="email"
                           register={register}
                           required
                         />
-                      }
+                      </Grid>
+                      <Grid item xs={12}>
+                        <InputComponent
+                          variant="outlined"
+                          label="password"
+                          id="password"
+                          register={register}
+                          required
+                        />
+                      </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
 
-                <Grid item xs={6} md={6}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                      <InputComponent
-                        variant="outlined"
-                        label="Standard"
-                        id="email"
-                        register={register}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <InputComponent
-                        variant="outlined"
-                        label="Standard"
-                        id="password"
-                        register={register}
-                        required
-                      />
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-
-              <ButtonComponent
-                variant="outlined"
-                label="Filled"
-                color="success"
-                type="submit"
-                text="SUBMIT"
-              >
-                SUBMIT
-              </ButtonComponent>
-            </form>
-          </AvtorizedPageBlockContentForm>
-        </AvtorizedPageBlockContent>
-      </AvtorizedPage>
+                <ButtonComponent
+                  variant="outlined"
+                  label="Filled"
+                  color="success"
+                  type="submit"
+                  text="SUBMIT"
+                >
+                  SUBMIT
+                </ButtonComponent>
+              </form>
+            </AvtorizedPageBlockContentForm>
+          </AvtorizedPageBlockContent>
+        </AvtorizedPage>
+      </MainContainer>
     </>
   );
 };
