@@ -22,7 +22,7 @@ const Home = () => {
             label="Outlined"
             variant="outlined"
             text="go to registration"
-            eventClick={() => alert("ssss")}
+            onClick={goToRegistration}
           />
           <img
             src={require("../static/images/bg-image.svg").default}

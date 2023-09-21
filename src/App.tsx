@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
-import Box from "@mui/material/Box";
+import React from "react";
 
 import "./layout/App.css";
 import FormRegister from "./components";
 import NavigateComponent from "./components/NavigateComponent";
 import Home from "./pages/Home";
 import TestComponent from "./components/TestComponent";
-import MainContainer from "./components/MainContainer";
 
 function App() {
   return (
