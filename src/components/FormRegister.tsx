@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Grid, OutlinedInput, TextField, Typography } from "@mui/material";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   AvtorizedPage,
   AvtorizedPageBlockContent,
@@ -10,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { IFormData, IInput } from "../types/types";
 import InputComponent from "./InputComponent";
 import MainContainer from "./MainContainer";
+import { GENERAL_REQUEST } from "../api/general_request";
 
 const FormRegister = () => {
   const {
@@ -28,36 +32,19 @@ const FormRegister = () => {
     },
   });
 
+  const [checkStatus, setCheckStatus] = useState({ status: "" });
+  const notify = () => toast("Register Sussefully");
+
+  console.log("checkStatus", checkStatus);
+
   useEffect(() => {
     setFocus("name");
   }, [setFocus]);
 
   const refTab = useRef(null);
 
-  const sendTestData = useCallback((data: IFormData) => {
-    fetch("http://roud-map/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("RESPONSE", data);
-      })
-      .catch((error) => {
-        console.error("FETCH ERROR", error);
-      });
-  }, []);
-
   function onSubmitForm(data: IFormData) {
-    sendTestData(data);
+    GENERAL_REQUEST.sendDataForm("POST", data, setCheckStatus);
   }
 
   return (
@@ -81,7 +68,7 @@ const FormRegister = () => {
               >
                 Registration
               </Typography>
-
+              {!!checkStatus?.status && notify() && <ToastContainer />}
               <form onSubmit={handleSubmit(onSubmitForm)}>
                 <Grid container spacing={1} columnSpacing={2} rowSpacing={12}>
                   <Grid item xs={6} md={6}>

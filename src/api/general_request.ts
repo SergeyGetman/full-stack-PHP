@@ -3,8 +3,9 @@ import { IFormData } from "../types/types";
 
 const headersType: object = {
   "Content-Type": "application/json",
-  accept: "*/*",
 };
+
+export const URL = "http://roud-map/register";
 
 export const mock_data = {
   name: "SEWEQWEQWE",
@@ -13,22 +14,20 @@ export const mock_data = {
   password: "123123123123123",
 };
 
-// export const GENERAL_REQUEST = {
-//   sendDataForm: function sendPostData(
-//     method: string,
-//     url: string,
-//     data: IFormData
-//   ) {
-//     return axios({
-//       method: method,
-//       headers: headersType,
-//       url: url,
-//       data: JSON.stringify(data),
-//     })
-//       .then((res: AxiosResponse) => {
-//         const responseData = res.data;
-//         console.log("RRRR", responseData);
-//       })
-//       .catch((err) => console.log("ERRRR", err));
-//   },
-// };
+export const GENERAL_REQUEST = {
+  sendDataForm: function (method: string, data: IFormData, answerFNC: any) {
+    return axios({
+      method: method,
+      headers: headersType,
+      url: URL,
+      data: JSON.stringify(data),
+    })
+      .then((res: AxiosResponse) => {
+        answerFNC(res);
+        console.log("this is RES", res);
+        const responseData = res.data;
+        console.log("responseData", responseData);
+      })
+      .catch((err) => console.error("error", err));
+  },
+};

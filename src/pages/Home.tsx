@@ -14,6 +14,10 @@ const Home = () => {
     navigate("/login");
   };
 
+  const goToSignIn = () => {
+    navigate("/sign-in");
+  };
+
   return (
     <>
       <MainContainer args={{ checkVisible: false }}>
@@ -30,10 +34,10 @@ const Home = () => {
           />
           <Box>
             <ButtonComponent
-              label="Outlined"
+              label="Standard"
               variant="outlined"
               text="Sign In"
-              eventClick={goToRegistration}
+              onClick={goToSignIn}
               classNM={<HomeButtonNavigateStyle />}
             />
             <ButtonComponent

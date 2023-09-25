@@ -85,9 +85,13 @@ export type IFormData = {
   email: string;
   login: string;
   password: string;
+  answerFNC?: () => {} | void;
 };
 
 export interface IMainContainer {
   children: ReactNode;
   args?: Record<keyof ReactPropTypes, React.FC> | Record<string, any>;
+}
+export interface IMainContent {
+  children: ReactNode;
 }
