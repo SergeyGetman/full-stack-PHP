@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Grid, OutlinedInput, TextField, Typography } from "@mui/material";
 import {
   AvtorizedPage,
@@ -32,36 +32,33 @@ const FormRegister = () => {
     setFocus("name");
   }, [setFocus]);
 
-  const [logOne, logTwo, logThree, logFour] = watch([
-    "login",
-    "name",
-    "email",
-    "password",
-  ]);
-
-  // console.log("logOne", logOne);
-  // console.log("logTwo", logTwo);
-  // console.log("logThree", logThree);
-  // console.log("logFour", logFour);
-
   const refTab = useRef(null);
 
   const sendTestData = useCallback((data: IFormData) => {
-    console.log("DATA INSIDE CALLBACK", data);
     fetch("http://roud-map/register", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      //@ts-ignore
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     })
-      .then((r) => r.json())
-      .then((data) => console.log("RESPONSE", data));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("RESPONSE", data);
+      })
+      .catch((error) => {
+        console.error("FETCH ERROR", error);
+      });
   }, []);
 
-  const onSubmitForm = (data: IFormData) => {
+  function onSubmitForm(data: IFormData) {
     sendTestData(data);
-    console.log("DATA", data);
-  };
+  }
 
   return (
     <>
@@ -84,7 +81,8 @@ const FormRegister = () => {
               >
                 Registration
               </Typography>
-              <form action="" onSubmit={handleSubmit(onSubmitForm)}>
+
+              <form onSubmit={handleSubmit(onSubmitForm)}>
                 <Grid container spacing={1} columnSpacing={2} rowSpacing={12}>
                   <Grid item xs={6} md={6}>
                     <Grid container spacing={2}>
@@ -93,6 +91,7 @@ const FormRegister = () => {
                           variant="outlined"
                           label="name"
                           id="name"
+                          name="name"
                           register={register}
                           inputRef={refTab}
                           required
@@ -104,6 +103,7 @@ const FormRegister = () => {
                             variant="outlined"
                             label="login"
                             id="login"
+                            name="login"
                             register={register}
                             required
                           />
@@ -119,6 +119,7 @@ const FormRegister = () => {
                           variant="outlined"
                           label="email"
                           id="email"
+                          name="email"
                           register={register}
                           required
                         />
@@ -128,6 +129,7 @@ const FormRegister = () => {
                           variant="outlined"
                           label="password"
                           id="password"
+                          name="password"
                           register={register}
                           required
                         />

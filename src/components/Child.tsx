@@ -1,6 +1,8 @@
 import React, { forwardRef, useEffect } from "react";
 import { TableStyledStyle } from "../layout/styled-component/TableStyled.style";
 import { useForm } from "react-hook-form";
+import axios, { AxiosResponse } from "axios";
+import { mock_data } from "../api/general_request";
 
 const Child = forwardRef((props: any, ref) => {
   const newRef = { ...props };
@@ -55,6 +57,14 @@ const Child = forwardRef((props: any, ref) => {
       <br />
       <button type="button">TEST REF_ONE</button>
       <button type="button">TEST REF_TWO</button>
+
+      <form action="">
+        <input type="text" name="name" />
+        <input type="text" name="email" />
+        <input type="text" name="login" />
+        <input type="text" name="password" />
+        <button type="submit">Відправити</button>
+      </form>
     </>
   );
 });
