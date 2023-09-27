@@ -19,7 +19,7 @@ export const ButtonComponent: FC<MuiButtonProps> = ({
           type={type}
           variant={variant}
           onClick={onClick}
-          className={classNM}
+          sx={classNM}
           {...args}
         >
           {text}

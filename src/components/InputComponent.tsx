@@ -22,6 +22,7 @@ const InputComponent: FC<IInput> = forwardRef(
     },
     ref
   ) => {
+    console.log("this is ARGS", args);
     return (
       <>
         <TextField
@@ -34,12 +35,14 @@ const InputComponent: FC<IInput> = forwardRef(
           disabled={disabled}
           required={required}
           inputRef={inputRef}
+          sx={{ ...args.args }}
           {...(register && register(id))}
           onChange={(e) => {
             if (registerField) {
               registerField(e.target.name, e.target.value);
             }
           }}
+          {...args}
         >
           {children}
         </TextField>

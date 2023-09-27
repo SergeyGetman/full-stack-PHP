@@ -76,6 +76,7 @@ export type MuiButtonProps = {
   isStopPropagation?: boolean;
   fullWidth?: boolean;
   currentRoute?: string;
+  classNM?: Object;
   onClick?: (event: React.MouseEvent<any, MouseEvent>) => void;
   [x: string]: any;
 };

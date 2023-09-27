@@ -1,45 +1,75 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import MainContainer from "./MainContainer";
-import { Grid } from "@mui/material";
+import { Box, Checkbox, Grid } from "@mui/material";
 import InputComponent from "./InputComponent";
 import ButtonComponent from "./ButtonComponent";
+import {
+  SignInStyle,
+  SignInStyleAllFormBlock,
+  SignInStyleSubtitle,
+  SignInStyleTitle,
+  SignInWrapperButton,
+} from "../layout/styled-component/SignIn.style";
 
 const SignIn = () => {
+  const formSignIn = (arrayComponents: ReactNode) => {
+    const objForRender = [{ variant: "filled" }];
+  };
+
+  const classesCustom = { width: "80%" };
+
   return (
     <>
       <MainContainer>
-        <div>Hello Register</div>
-        <>
-          <form action="">
-            <Grid container={true} spacing={1} item>
-              <Grid xs={2} md={5} lg={12} item>
-                <InputComponent
-                  variant="filled"
-                  label="email"
-                  id="email"
-                  name="email"
-                  required
-                />
-              </Grid>
-              <Grid xs={2} md={5} lg={12} item>
-                <InputComponent
-                  variant="filled"
-                  label="login"
-                  id="login"
-                  name="login"
-                  required
-                />
-              </Grid>
-            </Grid>
-            <ButtonComponent
-              variant="contained"
-              label="Filled"
-              color="success"
-              type="submit"
-              text="SUBMIT"
-            />
-          </form>
-        </>
+        <SignInStyle>
+          <SignInStyleAllFormBlock>
+            <SignInStyleTitle>
+              <span>ENTER</span>
+              <span>REGISTRATION</span>
+            </SignInStyleTitle>
+
+            <>
+              <form action="">
+                <Grid container={true} spacing={1} item>
+                  <Grid xs={2} md={5} lg={12} item>
+                    <InputComponent
+                      variant="filled"
+                      label="email"
+                      id="email"
+                      name="email"
+                      args={classesCustom}
+                      required
+                    />
+                  </Grid>
+                  <Grid xs={2} md={5} lg={12} item>
+                    <InputComponent
+                      variant="filled"
+                      label="login"
+                      id="login"
+                      name="login"
+                      args={classesCustom}
+                      required
+                    />
+                  </Grid>
+                </Grid>
+                <SignInStyleSubtitle>
+                  <Checkbox />
+                  <span>remember me </span>
+                </SignInStyleSubtitle>
+                <SignInWrapperButton>
+                  <ButtonComponent
+                    variant="contained"
+                    label="Filled"
+                    color="success"
+                    type="submit"
+                    text="SUBMIT"
+                    sx={classesCustom}
+                  />
+                </SignInWrapperButton>
+              </form>
+            </>
+          </SignInStyleAllFormBlock>
+        </SignInStyle>
       </MainContainer>
     </>
   );
