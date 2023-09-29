@@ -4,12 +4,15 @@ import { Box, Checkbox, Grid } from "@mui/material";
 import InputComponent from "./InputComponent";
 import ButtonComponent from "./ButtonComponent";
 import {
+  SignInForgotPassword,
   SignInStyle,
   SignInStyleAllFormBlock,
   SignInStyleSubtitle,
   SignInStyleTitle,
   SignInWrapperButton,
 } from "../layout/styled-component/SignIn.style";
+import NavigateComponent from "./NavigateComponent";
+import TextComponent from "./TextComponent";
 
 const SignIn = () => {
   const formSignIn = (arrayComponents: ReactNode) => {
@@ -66,6 +69,12 @@ const SignIn = () => {
                     sx={classesCustom}
                   />
                 </SignInWrapperButton>
+                <SignInForgotPassword>
+                  <NavigateComponent
+                    path={"/forgot-password"}
+                    element={<TextComponent text="forgot password" />}
+                  />
+                </SignInForgotPassword>
               </form>
             </>
           </SignInStyleAllFormBlock>

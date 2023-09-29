@@ -43,3 +43,7 @@ export const SignInStyleSubtitle = styled(Box)(({ theme }) => ({
 export const SignInWrapperButton = styled(Box)(({ theme }) => ({
   marginTop: "25px",
 }));
+
+export const SignInForgotPassword = styled(Box)(({ theme }) => ({
+  background: "blue",
+}));
