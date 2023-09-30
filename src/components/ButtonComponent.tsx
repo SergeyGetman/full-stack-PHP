@@ -5,7 +5,7 @@ import { ButtonMuiStyle } from "../layout/styled-component/ButtonMui.styled";
 
 export const ButtonComponent: FC<MuiButtonProps> = ({
   type,
-  variant,
+  variant = "outlined",
   text,
   classNM,
   onClick,

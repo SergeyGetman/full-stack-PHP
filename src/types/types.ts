@@ -4,6 +4,7 @@ import InputComponent from "../components/InputComponent";
 import { PropTypes, TextFieldVariants, TypographyProps } from "@mui/material";
 import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
 import { UseFormRegisterReturn } from "react-hook-form";
+import AvtorizedGoogle from "../components/AvtorizedGoogle";
 
 export interface INavigate {
   path: string;
@@ -95,4 +96,9 @@ export interface IMainContainer {
 }
 export interface IMainContent {
   children: ReactNode;
+}
+
+export interface IAvtorizedGoogle {
+  text: string;
+  icon?: ReactComponentElement<any>;
 }

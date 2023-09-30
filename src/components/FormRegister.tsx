@@ -14,6 +14,8 @@ import { IFormData, IInput } from "../types/types";
 import InputComponent from "./InputComponent";
 import MainContainer from "./MainContainer";
 import { GENERAL_REQUEST } from "../api/general_request";
+import { Link } from "react-router-dom";
+import AvtorizedGoogle from "./AvtorizedGoogle";
 
 const FormRegister = () => {
   const {

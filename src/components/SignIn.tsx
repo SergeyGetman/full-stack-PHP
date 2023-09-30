@@ -13,6 +13,8 @@ import {
 } from "../layout/styled-component/SignIn.style";
 import NavigateComponent from "./NavigateComponent";
 import TextComponent from "./TextComponent";
+import AvtorizedGoogle from "./AvtorizedGoogle";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const formSignIn = (arrayComponents: ReactNode) => {
@@ -70,10 +72,8 @@ const SignIn = () => {
                   />
                 </SignInWrapperButton>
                 <SignInForgotPassword>
-                  <NavigateComponent
-                    path={"/forgot-password"}
-                    element={<TextComponent text="forgot password" />}
-                  />
+                  <Link to="/forgot-password">Forgot Password ?</Link>
+                  <AvtorizedGoogle text="avtorized with Google " />
                 </SignInForgotPassword>
               </form>
             </>
