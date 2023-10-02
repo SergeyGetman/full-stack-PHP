@@ -2,7 +2,11 @@ import axios, { AxiosResponse } from "axios";
 import { IFormData } from "../types/types";
 
 const headersType: object = {
+  "Cache-Control": "no-cache",
   "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  "Access-Control-Allow-Private-Network": true,
 };
 
 export const URL = "http://roud-map/register";
@@ -18,9 +22,8 @@ export const GENERAL_REQUEST = {
   sendDataForm: function (method: string, data: IFormData, answerFNC: any) {
     return axios({
       method: method,
-      headers: headersType,
       url: URL,
-      data: JSON.stringify(data),
+      data: data,
     })
       .then((res: AxiosResponse) => {
         answerFNC(res);

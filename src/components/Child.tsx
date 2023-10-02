@@ -55,10 +55,8 @@ const Child = forwardRef((props: any, ref) => {
         ref={ref as React.RefObject<HTMLInputElement>}
       />
       <br />
-      <button type="button">TEST REF_ONE</button>
-      <button type="button">TEST REF_TWO</button>
 
-      <form action="">
+      <form action="http://roud-map/register" method="POST">
         <input type="text" name="name" />
         <input type="text" name="email" />
         <input type="text" name="login" />

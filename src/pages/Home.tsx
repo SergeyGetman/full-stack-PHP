@@ -38,7 +38,6 @@ const Home = () => {
               variant="outlined"
               text="Sign In"
               onClick={goToSignIn}
-              classNM={<HomeButtonNavigateStyle />}
             />
             <ButtonComponent
               label="Outlined"

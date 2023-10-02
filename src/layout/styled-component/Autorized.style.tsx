@@ -44,7 +44,7 @@ export const AvtorizedGoogleStyle = styled(Box)(({ theme }) => ({
   height: "40px",
   border: "2.3px solid #5f9389",
   borderRadius: "10px",
-  boxShadow: "3px 3px 5px 5px #5f9389",
+  boxShadow: "3px 3px 3px 3px #5f9389",
 
   "& :hover": {
     cursor: "pointer",
@@ -55,4 +55,5 @@ export const AvtorizedGoogleIconText = styled(Typography)(({ theme }) => ({
   fontSize: "20px",
   fontWeight: "800",
   fontFamily: "monospace",
+  margin: "auto auto",
 }));
