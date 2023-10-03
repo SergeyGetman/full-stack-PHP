@@ -15,13 +15,18 @@ import NavigateComponent from "./NavigateComponent";
 import TextComponent from "./TextComponent";
 import AvtorizedGoogle from "./AvtorizedGoogle";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { GENERAL_REQUEST, METHOD } from "../api/general_request";
 
 const SignIn = () => {
-  const formSignIn = (arrayComponents: ReactNode) => {
-    const objForRender = [{ variant: "filled" }];
-  };
+  const { handleSubmit, register, reset, setValue, setError } = useForm();
 
   const classesCustom = { width: "80%" };
+
+  const onsubmitFormLogin = (dataForm: any) => {
+    GENERAL_REQUEST.sendDataFormSignIn(dataForm, METHOD.post);
+    console.log("dataForm", dataForm);
+  };
 
   return (
     <>
@@ -34,18 +39,8 @@ const SignIn = () => {
             </SignInStyleTitle>
 
             <>
-              <form action="">
+              <form action="" onSubmit={handleSubmit(onsubmitFormLogin)}>
                 <Grid container={true} spacing={1} item>
-                  <Grid xs={2} md={5} lg={12} item>
-                    <InputComponent
-                      variant="filled"
-                      label="email"
-                      id="email"
-                      name="email"
-                      args={classesCustom}
-                      required
-                    />
-                  </Grid>
                   <Grid xs={2} md={5} lg={12} item>
                     <InputComponent
                       variant="filled"
@@ -53,6 +48,18 @@ const SignIn = () => {
                       id="login"
                       name="login"
                       args={classesCustom}
+                      register={register}
+                      required
+                    />
+                  </Grid>
+                  <Grid xs={2} md={5} lg={12} item>
+                    <InputComponent
+                      variant="filled"
+                      label="password"
+                      id="password"
+                      name="password"
+                      args={classesCustom}
+                      register={register}
                       required
                     />
                   </Grid>

@@ -9,7 +9,13 @@ const headersType: object = {
   "Access-Control-Allow-Private-Network": true,
 };
 
-export const URL = "http://roud-map/register";
+export const URL_FOR_REGISTER = "http://roud-map/register";
+export const URL_FOR_LOGIN = "http://roud-map/login";
+
+export const METHOD = {
+  post: "POST",
+  get: "GET",
+};
 
 export const mock_data = {
   name: "SEWEQWEQWE",
@@ -19,15 +25,33 @@ export const mock_data = {
 };
 
 export const GENERAL_REQUEST = {
-  sendDataForm: function (method: string, data: IFormData, answerFNC: any) {
+  sendDataFormRegister: function (
+    method: string,
+    data: IFormData,
+    answerFNC: any
+  ) {
     return axios({
       method: method,
-      url: URL,
+      url: URL_FOR_REGISTER,
       data: data,
     })
       .then((res: AxiosResponse) => {
         answerFNC(res);
         console.log("this is RES", res);
+        const responseData = res.data;
+        console.log("responseData", responseData);
+      })
+      .catch((err) => console.error("error", err));
+  },
+
+  sendDataFormSignIn: function (dataFormSignIn: any, method: string) {
+    return axios({
+      method: method,
+      url: URL_FOR_LOGIN,
+      data: dataFormSignIn,
+    })
+      .then((res: AxiosResponse) => {
+        console.log("res", res);
         const responseData = res.data;
         console.log("responseData", responseData);
       })

@@ -13,9 +13,7 @@ import { useForm } from "react-hook-form";
 import { IFormData, IInput } from "../types/types";
 import InputComponent from "./InputComponent";
 import MainContainer from "./MainContainer";
-import { GENERAL_REQUEST } from "../api/general_request";
-import { Link } from "react-router-dom";
-import AvtorizedGoogle from "./AvtorizedGoogle";
+import { GENERAL_REQUEST, METHOD } from "../api/general_request";
 
 const FormRegister = () => {
   const {
@@ -46,7 +44,7 @@ const FormRegister = () => {
   const refTab = useRef(null);
 
   function onSubmitForm(data: IFormData) {
-    GENERAL_REQUEST.sendDataForm("POST", data, setCheckStatus);
+    GENERAL_REQUEST.sendDataFormRegister(METHOD.post, data, setCheckStatus);
   }
 
   return (
