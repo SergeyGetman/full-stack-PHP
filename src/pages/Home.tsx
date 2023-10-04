@@ -14,40 +14,32 @@ const Home = () => {
     navigate("/register");
   };
 
-  const goToSignIn = () => {
+  const goToLogIn = () => {
     navigate("/login");
   };
 
   return (
     <>
-      <MainContainer args={{ checkVisible: false }}>
-        <HomeContainerStyle>
+      <HomeContainerStyle>
+        <ButtonComponent
+          label="Outlined"
+          variant="contained"
+          text="registration"
+          onClick={goToRegistration}
+        />
+        <img
+          src={require("../static/images/bg-image.svg").default}
+          alt="home-logo"
+        />
+        <Box>
           <ButtonComponent
-            label="Outlined"
-            variant="outlined"
-            text="go to registration"
-            onClick={goToRegistration}
+            label="Standard"
+            variant="contained"
+            text="Login"
+            onClick={goToLogIn}
           />
-          <img
-            src={require("../static/images/bg-image.svg").default}
-            alt="home-logo"
-          />
-          <Box>
-            <ButtonComponent
-              label="Standard"
-              variant="outlined"
-              text="Sign In"
-              onClick={goToSignIn}
-            />
-            <ButtonComponent
-              label="Outlined"
-              variant="outlined"
-              text="Sign Up"
-              eventClick={goToRegistration}
-            />
-          </Box>
-        </HomeContainerStyle>
-      </MainContainer>
+        </Box>
+      </HomeContainerStyle>
     </>
   );
 };

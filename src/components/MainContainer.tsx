@@ -7,6 +7,7 @@ import {
 } from "../layout/styled-component/MainContainer.style";
 import { useNavigate } from "react-router-dom";
 import HeaderComponent from "./HeaderComponent";
+import FooterContent from "./FooterContent";
 
 const MainContainer: FC<IMainContainer> = ({ children, args }) => {
   const { checkVisible } = args || {};
@@ -18,10 +19,12 @@ const MainContainer: FC<IMainContainer> = ({ children, args }) => {
   return (
     <>
       <MainContainerStyle>
+        <HeaderComponent />
+
         {children}
+        <FooterContent />
         {checkVisible ?? (
           <>
-            <HeaderComponent />
             <MainContainerBTNStyle>
               <ButtonComponent
                 text="Home"

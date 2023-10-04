@@ -36,6 +36,20 @@ const FormRegister = () => {
   const [checkStatus, setCheckStatus] = useState({ status: "" });
   const notify = () => toast("Register Sussefully");
 
+  const [watchName, watchLogin, watchEmail, watchPassword] = watch([
+    "name",
+    "login",
+    "email",
+    "password",
+  ]);
+
+  const styleForInput = {
+    boxShadow:
+      !!watchName || !!watchLogin || !watchEmail || !watchPassword
+        ? "inset 6px 4px 3px 1px black"
+        : "inset 4px 3px 2px 1px red",
+  };
+
   const st = useSelector((state) => console.log("state", state));
   console.log(st);
 
@@ -64,7 +78,7 @@ const FormRegister = () => {
                 variant="h3"
                 sx={{
                   fontFamily: "cursive",
-                  color: "#2b392fe6",
+                  color: "#fff",
                   textAlign: "center",
                 }}
               >
@@ -83,20 +97,20 @@ const FormRegister = () => {
                           name="name"
                           register={register}
                           inputRef={refTab}
+                          args={styleForInput}
                           required
                         />
                       </Grid>
                       <Grid item xs={12}>
-                        {
-                          <InputComponent
-                            variant="outlined"
-                            label="login"
-                            id="login"
-                            name="login"
-                            register={register}
-                            required
-                          />
-                        }
+                        <InputComponent
+                          variant="outlined"
+                          label="login"
+                          id="login"
+                          name="login"
+                          register={register}
+                          args={styleForInput}
+                          required
+                        />
                       </Grid>
                     </Grid>
                   </Grid>
@@ -110,6 +124,7 @@ const FormRegister = () => {
                           id="email"
                           name="email"
                           register={register}
+                          args={styleForInput}
                           required
                         />
                       </Grid>
@@ -120,6 +135,7 @@ const FormRegister = () => {
                           id="password"
                           name="password"
                           register={register}
+                          args={styleForInput}
                           required
                         />
                       </Grid>
@@ -128,14 +144,12 @@ const FormRegister = () => {
                 </Grid>
 
                 <ButtonComponent
-                  variant="outlined"
+                  variant="contained"
                   label="Filled"
-                  color="success"
+                  color="primary"
                   type="submit"
                   text="SUBMIT"
-                >
-                  SUBMIT
-                </ButtonComponent>
+                />
               </form>
             </AvtorizedPageBlockContentForm>
           </AvtorizedPageBlockContent>

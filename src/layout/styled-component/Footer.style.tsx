@@ -1,10 +1,10 @@
 import { Box, styled } from "@mui/material";
 
-export const HeaderStyleComponent = styled(Box)(({ theme }) => ({
-  height: "100px",
+export const FooterContentStyle = styled(Box)(({ theme }) => ({
   flexShrink: "0",
+  height: "100px",
   background: "#0b0b0b",
+  margin: "auto auto",
   color: "#fff",
   fontFamily: "monospace",
-  boxShadow: "3px 3px 4px 4px #344422",
 }));
