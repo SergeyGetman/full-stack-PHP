@@ -1,10 +1,8 @@
 import React, { ReactComponentElement, ReactNode, ReactPropTypes } from "react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
-import InputComponent from "../components/InputComponent";
-import { PropTypes, TextFieldVariants, TypographyProps } from "@mui/material";
-import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { TextFieldVariants } from "@mui/material";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 import { UseFormRegisterReturn } from "react-hook-form";
-import AvtorizedGoogle from "../components/AvtorizedGoogle";
 
 export interface INavigate {
   path: string;
@@ -12,10 +10,8 @@ export interface INavigate {
 }
 
 export interface IInitialFormState {
-  name: string;
-  login: string;
-  email: string;
-  password: string;
+  statusRegister: any[];
+  statusLogin: any[];
 }
 
 type IButtonEvent = "submit" | "button" | "reset" | undefined;

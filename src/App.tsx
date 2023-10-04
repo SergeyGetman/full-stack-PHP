@@ -12,9 +12,9 @@ function App() {
     <>
       <div className="App">
         <NavigateComponent path="/" element={<Home />} />
-        <NavigateComponent path="/login" element={<FormRegister />} />
+        <NavigateComponent path="/register" element={<FormRegister />} />
         <NavigateComponent path="/test" element={<TestComponent />} />
-        <NavigateComponent path="/sign-in" element={<SignIn />} />
+        <NavigateComponent path="/login" element={<SignIn />} />
       </div>
     </>
   );

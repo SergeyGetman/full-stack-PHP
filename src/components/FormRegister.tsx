@@ -14,6 +14,7 @@ import { IFormData, IInput } from "../types/types";
 import InputComponent from "./InputComponent";
 import MainContainer from "./MainContainer";
 import { GENERAL_REQUEST, METHOD } from "../api/general_request";
+import { useSelector } from "react-redux";
 
 const FormRegister = () => {
   const {
@@ -35,7 +36,8 @@ const FormRegister = () => {
   const [checkStatus, setCheckStatus] = useState({ status: "" });
   const notify = () => toast("Register Sussefully");
 
-  console.log("checkStatus", checkStatus);
+  const st = useSelector((state) => console.log("state", state));
+  console.log(st);
 
   useEffect(() => {
     setFocus("name");

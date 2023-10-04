@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { IFormData } from "../types/types";
+import { URL_FOR_LOGIN, URL_FOR_REGISTER } from "./general_url";
 
 const headersType: object = {
   "Cache-Control": "no-cache",
@@ -8,9 +9,6 @@ const headersType: object = {
   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   "Access-Control-Allow-Private-Network": true,
 };
-
-export const URL_FOR_REGISTER = "http://roud-map/register";
-export const URL_FOR_LOGIN = "http://roud-map/login";
 
 export const METHOD = {
   post: "POST",

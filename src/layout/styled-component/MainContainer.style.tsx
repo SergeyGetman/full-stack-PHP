@@ -7,9 +7,6 @@ export const MainContainerStyle = styled(Box)(({ theme }) => ({
 }));
 
 export const MainContainerBTNStyle = styled(Box)(({ theme }) => ({
-  width: "100%",
-  display: "flex",
-
   "& button": {
     backgroundColor: "yellow",
     textAlign: "center",

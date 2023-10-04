@@ -11,11 +11,11 @@ import MainContainer from "../components/MainContainer";
 const Home = () => {
   const navigate = useNavigate();
   const goToRegistration = () => {
-    navigate("/login");
+    navigate("/register");
   };
 
   const goToSignIn = () => {
-    navigate("/sign-in");
+    navigate("/login");
   };
 
   return (

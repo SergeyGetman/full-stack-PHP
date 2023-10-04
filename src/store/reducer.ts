@@ -2,14 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IInitialFormState } from "../types/types";
 
 export const initialFormState: IInitialFormState = {
-  name: "",
-  login: "",
-  email: "",
-  password: "",
+  statusRegister: [],
+  statusLogin: [],
 };
 
 export const checkFormRegisterSlice = createSlice({
-  name: "formData",
+  name: "formDataCheck",
   initialState: initialFormState,
 
   reducers: {

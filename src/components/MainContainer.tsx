@@ -6,6 +6,7 @@ import {
   MainContainerStyle,
 } from "../layout/styled-component/MainContainer.style";
 import { useNavigate } from "react-router-dom";
+import HeaderComponent from "./HeaderComponent";
 
 const MainContainer: FC<IMainContainer> = ({ children, args }) => {
   const { checkVisible } = args || {};
@@ -19,15 +20,18 @@ const MainContainer: FC<IMainContainer> = ({ children, args }) => {
       <MainContainerStyle>
         {children}
         {checkVisible ?? (
-          <MainContainerBTNStyle>
-            <ButtonComponent
-              text="Home"
-              variant="outlined"
-              label="Home"
-              onClick={handleHome}
-              {...args}
-            />
-          </MainContainerBTNStyle>
+          <>
+            <HeaderComponent />
+            <MainContainerBTNStyle>
+              <ButtonComponent
+                text="Home"
+                variant="outlined"
+                label="Home"
+                onClick={handleHome}
+                {...args}
+              />
+            </MainContainerBTNStyle>
+          </>
         )}
       </MainContainerStyle>
     </>
