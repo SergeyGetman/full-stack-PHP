@@ -1,12 +1,8 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import {
-  HomeButtonNavigateStyle,
-  HomeContainerStyle,
-} from "../layout/styled-component/HomeContainer.style";
+import { HomeContainerStyle } from "../layout/styled-component/HomeContainer.style";
 import ButtonComponent from "../components/ButtonComponent";
 import { useNavigate } from "react-router-dom";
-import MainContainer from "../components/MainContainer";
 
 const Home = () => {
   const navigate = useNavigate();

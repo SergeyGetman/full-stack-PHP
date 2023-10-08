@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import MainContainer from "./MainContainer";
 import { Box, Checkbox, Grid } from "@mui/material";
 import InputComponent from "./InputComponent";
@@ -11,8 +11,6 @@ import {
   SignInStyleTitle,
   SignInWrapperButton,
 } from "../layout/styled-component/SignIn.style";
-import NavigateComponent from "./NavigateComponent";
-import TextComponent from "./TextComponent";
 import AvtorizedGoogle from "./AvtorizedGoogle";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";

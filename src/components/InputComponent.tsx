@@ -1,5 +1,5 @@
-import React, { FC, forwardRef, useEffect, useRef } from "react";
-import { Box, TextField, TextFieldVariants } from "@mui/material";
+import React, { FC, forwardRef } from "react";
+import { TextField } from "@mui/material";
 import { IInput } from "../types/types";
 
 const InputComponent: FC<IInput> = forwardRef(
@@ -22,7 +22,6 @@ const InputComponent: FC<IInput> = forwardRef(
     },
     ref
   ) => {
-    console.log("this is ARGS", args);
     return (
       <>
         <TextField

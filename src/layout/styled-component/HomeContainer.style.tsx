@@ -1,4 +1,4 @@
-import { Box, keyframes, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
 export const HomeContainerStyle = styled(Box)(({ theme }) => ({
   margin: "10px",

@@ -1,8 +1,6 @@
-import React, { forwardRef, useEffect } from "react";
+import React, { forwardRef } from "react";
 import { TableStyledStyle } from "../layout/styled-component/TableStyled.style";
 import { useForm } from "react-hook-form";
-import axios, { AxiosResponse } from "axios";
-import { mock_data } from "../api/general_request";
 
 const Child = forwardRef((props: any, ref) => {
   const newRef = { ...props };
