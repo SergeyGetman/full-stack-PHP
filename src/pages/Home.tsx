@@ -24,7 +24,7 @@ const Home = () => {
           onClick={goToRegistration}
         />
         <img
-          src={require("../static/images/bg-image.svg").default}
+          src={require("../static/images/bg-fon.png").default}
           alt="home-logo"
         />
         <Box>
