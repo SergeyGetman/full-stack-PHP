@@ -16,19 +16,29 @@ export const SignInStyleAllFormBlock = styled(Box)(({ theme }) => ({
   background: "#FFF",
 
   "& form ": {
-    margin: "44px 0",
+    margin: "21px 0",
+    height: "100%",
   },
 }));
 
-export const SignInStyleTitle = styled(Typography)(({ theme }) => ({
-  color: "#0a1539",
-  fontFamily: "cursive",
-  marginTop: "88px",
+export const SignInStyleTitle = styled(Typography)(
+  ({ active }: { active?: boolean }) => ({
+    color: "#0a1539",
+    fontFamily: "cursive",
+    marginTop: "28px",
 
-  "& span": {
-    margin: "20px",
-  },
-}));
+    "& span": {
+      fontSize: "20px",
+      margin: "17px",
+      textDecorationColor: "blue",
+    },
+
+    "& span:hover": {
+      cursor: "pointer",
+      color: "red",
+    },
+  })
+);
 export const SignInStyleSubtitle = styled(Box)(({ theme }) => ({
   display: "flex",
   color: "#0a1539",
@@ -46,7 +56,7 @@ export const SignInWrapperButton = styled(Box)(({ theme }) => ({
 
 export const SignInForgotPassword = styled(Box)(({ theme }) => ({
   height: "250px",
-  marginTop: "25px",
+  marginTop: "5px",
 
   "& a": {
     textDecoration: "none",

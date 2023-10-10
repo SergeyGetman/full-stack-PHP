@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { GENERAL_REQUEST, METHOD } from "../api/general_request";
 
+import AccessibilityIcon from "@mui/icons-material/Accessibility";
+
 const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
   const [changeFormCountInput, setChangeFormCountInput] =
     useState<boolean>(false);
@@ -42,8 +44,20 @@ const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
         <SignInStyle>
           <SignInStyleAllFormBlock>
             <SignInStyleTitle>
-              <span onClick={() => changeType("signin")}>ENTER</span>
-              <span onClick={() => changeType("registration")}>
+              <span
+                style={{
+                  textDecoration: changeFormCountInput ? "underline" : "none",
+                }}
+                onClick={() => changeType("signin")}
+              >
+                ENTER
+              </span>
+              <span
+                style={{
+                  textDecoration: changeFormCountInput ? "none" : "underline",
+                }}
+                onClick={() => changeType("registration")}
+              >
                 REGISTRATION
               </span>
             </SignInStyleTitle>
@@ -81,9 +95,9 @@ const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
                       <Grid xs={2} md={5} lg={12} item>
                         <InputComponent
                           variant="filled"
-                          label="login"
-                          id="login"
-                          name="login"
+                          label="name"
+                          id="name"
+                          name="name"
                           args={classesCustom}
                           register={register}
                           required
@@ -92,18 +106,18 @@ const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
                       <Grid xs={2} md={5} lg={12} item>
                         <InputComponent
                           variant="filled"
-                          label="password"
-                          id="password"
-                          name="password"
+                          label="login"
+                          id="login"
+                          name="login"
                           args={classesCustom}
                           register={register}
                           required
                         />
                         <InputComponent
                           variant="filled"
-                          label="password"
-                          id="password"
-                          name="password"
+                          label="email"
+                          id="email"
+                          name="email"
                           args={classesCustom}
                           register={register}
                           required
@@ -120,29 +134,6 @@ const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
                       </Grid>
                     </>
                   )}
-
-                  {/*<Grid xs={2} md={5} lg={12} item>*/}
-                  {/*  <InputComponent*/}
-                  {/*    variant="filled"*/}
-                  {/*    label="login"*/}
-                  {/*    id="login"*/}
-                  {/*    name="login"*/}
-                  {/*    args={classesCustom}*/}
-                  {/*    register={register}*/}
-                  {/*    required*/}
-                  {/*  />*/}
-                  {/*</Grid>*/}
-                  {/*<Grid xs={2} md={5} lg={12} item>*/}
-                  {/*  <InputComponent*/}
-                  {/*    variant="filled"*/}
-                  {/*    label="password"*/}
-                  {/*    id="password"*/}
-                  {/*    name="password"*/}
-                  {/*    args={classesCustom}*/}
-                  {/*    register={register}*/}
-                  {/*    required*/}
-                  {/*  />*/}
-                  {/*</Grid>*/}
                 </Grid>
                 <SignInStyleSubtitle>
                   <Checkbox />
