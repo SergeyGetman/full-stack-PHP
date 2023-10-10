@@ -22,7 +22,7 @@ export const HomeContainerStyle = styled(Box)(({ theme }) => ({
     },
     to: {
       opacity: "1",
-      background: "#7fabd6",
+      background: "#2ec246",
     },
   },
 

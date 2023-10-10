@@ -10,6 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  const sizeRiverWidth = {
+    width: "200px",
+  };
+
   const goToRegistration = () => {
     navigate("/register");
   };
@@ -25,13 +30,17 @@ const Home = () => {
           <ButtonComponent
             label="Outlined"
             variant="contained"
+            size="medium"
             text="registration"
+            classNM={sizeRiverWidth}
             onClick={goToRegistration}
           />
           <ButtonComponent
             label="Standard"
             variant="contained"
+            size="medium"
             text="Login"
+            classNM={sizeRiverWidth}
             onClick={goToLogIn}
           />
         </HomeButtonNavigateStyle>
