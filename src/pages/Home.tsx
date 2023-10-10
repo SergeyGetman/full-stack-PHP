@@ -1,6 +1,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { HomeContainerStyle } from "../layout/styled-component/HomeContainer.style";
+import {
+  HomeButtonNavigateStyle,
+  HomeContainerStyle,
+  LegionImg,
+} from "../layout/styled-component/HomeContainer.style";
 import ButtonComponent from "../components/ButtonComponent";
 import { useNavigate } from "react-router-dom";
 
@@ -17,24 +21,26 @@ const Home = () => {
   return (
     <>
       <HomeContainerStyle>
-        <ButtonComponent
-          label="Outlined"
-          variant="contained"
-          text="registration"
-          onClick={goToRegistration}
-        />
-        <img
-          src={require("../static/images/bg-fon.png").default}
-          alt="home-logo"
-        />
-        <Box>
+        <HomeButtonNavigateStyle>
+          <ButtonComponent
+            label="Outlined"
+            variant="contained"
+            text="registration"
+            onClick={goToRegistration}
+          />
           <ButtonComponent
             label="Standard"
             variant="contained"
             text="Login"
             onClick={goToLogIn}
           />
-        </Box>
+        </HomeButtonNavigateStyle>
+
+        <img
+          src={require("../static/images/bg-fon.svg").default}
+          alt="home-logo"
+        />
+        <LegionImg />
       </HomeContainerStyle>
     </>
   );

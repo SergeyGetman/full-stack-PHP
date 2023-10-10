@@ -1,4 +1,6 @@
 import { Box, styled } from "@mui/material";
+// @ts-ignore
+import LegionFone from "../../static/images/legion.png";
 
 export const HomeContainerStyle = styled(Box)(({ theme }) => ({
   margin: "10px",
@@ -8,6 +10,10 @@ export const HomeContainerStyle = styled(Box)(({ theme }) => ({
   background: "linear-gradient(252deg, #D45B78 0.01%, #4B3862 101.01%)",
 
   animation: "$slidein 2s infinite",
+
+  "& img": {
+    height: "700px",
+  },
 
   "@keyframes slidein": {
     from: {
@@ -35,13 +41,17 @@ export const HomeContainerStyle = styled(Box)(({ theme }) => ({
 }));
 
 export const HomeButtonNavigateStyle = styled(Box)(({ theme }) => ({
-  height: "200px",
-  marginBottom: "auto",
-  backgroundColor: "red",
-  color: "yellow",
+  display: "flex",
+  justifyContent: "center",
   button: {
     animationFillMode: "forwards",
     backgroundColor: "red",
     color: "yellow",
   },
+}));
+
+export const LegionImg = styled(Box)(({ theme }) => ({
+  color: "black",
+  height: "100%",
+  backgroundImage: `url(${LegionFone})`,
 }));
