@@ -33,7 +33,7 @@ const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
   };
 
   function changeType(word: string) {
-    return word === "signin"
+    return word === "signing"
       ? setChangeFormCountInput(true)
       : setChangeFormCountInput(false);
   }
@@ -48,7 +48,7 @@ const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
                 style={{
                   textDecoration: changeFormCountInput ? "underline" : "none",
                 }}
-                onClick={() => changeType("signin")}
+                onClick={() => changeType("signing")}
               >
                 ENTER
               </span>

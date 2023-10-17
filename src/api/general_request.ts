@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { IFormData } from "../types/types";
 import { URL_FOR_LOGIN, URL_FOR_REGISTER } from "./general_url";
+import UseNavigatePath from "../hooks/useNavigatePath";
 
 const headersType: object = {
   "Cache-Control": "no-cache",
@@ -15,12 +16,27 @@ export const METHOD = {
   get: "GET",
 };
 
-export const mock_data = {
-  name: "SEWEQWEQWE",
-  login: "asdqweqweqwe",
-  email: "qweqwe@gmail.com",
-  password: "123123123123123",
-};
+axios.interceptors.response.use(
+  function (response) {
+    switch (response.status) {
+      case 200: {
+        break;
+      }
+    }
+    console.log("Successful response:", response);
+
+    return response;
+  },
+  function (error) {
+    switch (error.status) {
+      case 500: {
+      }
+    }
+    console.error("Error response:", error);
+
+    return Promise.reject(error);
+  }
+);
 
 export const GENERAL_REQUEST = {
   sendDataFormRegister: function (
