@@ -39,12 +39,12 @@ axios.interceptors.response.use(
 );
 
 export const GENERAL_REQUEST = {
-  sendDataFormRegister: function (
+  sendDataFormRegister: async function (
     method: string,
     data: IFormData,
     answerFNC: any
   ) {
-    return axios({
+    await axios({
       method: method,
       url: URL_FOR_REGISTER,
       data: data,
@@ -52,7 +52,9 @@ export const GENERAL_REQUEST = {
       .then((res: AxiosResponse) => {
         answerFNC(res);
         console.log("this is RES", res);
+
         const responseData = res.data;
+        localStorage.setItem("responseData", JSON.stringify(responseData));
         console.log("responseData", responseData);
       })
       .catch((err) => console.error("error", err));

@@ -40,7 +40,7 @@ const SignIn = ({ typeLoad }: { typeLoad?: string }): ReactElement => {
 
   return (
     <>
-      <MainContainer>
+      <MainContainer arguments={true}>
         <SignInStyle>
           <SignInStyleAllFormBlock>
             <SignInStyleTitle>

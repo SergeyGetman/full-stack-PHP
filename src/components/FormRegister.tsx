@@ -15,6 +15,8 @@ import InputComponent from "./InputComponent";
 import MainContainer from "./MainContainer";
 import { GENERAL_REQUEST, METHOD } from "../api/general_request";
 import { useSelector } from "react-redux";
+import { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FormRegister = () => {
   const {
@@ -36,6 +38,8 @@ const FormRegister = () => {
   const [checkStatus, setCheckStatus] = useState({ status: "" });
   const notify = () => toast("Register Sussefully");
 
+  console.log("checkStatus222222", checkStatus);
+
   const [watchName, watchLogin, watchEmail, watchPassword] = watch([
     "name",
     "login",
@@ -46,9 +50,11 @@ const FormRegister = () => {
   const styleForInput = {
     boxShadow:
       !!watchName || !!watchLogin || !watchEmail || !watchPassword
-        ? "inset 6px 4px 3px 1px black"
-        : "inset 4px 3px 2px 1px red",
+        ? " 0.1px 0.2px 0.3px 0.4px black"
+        : " 1px 1px 1px 1px red",
   };
+
+  const navigate = useNavigate();
 
   const st = useSelector((state) => console.log("state", state));
   console.log(st);
@@ -60,7 +66,9 @@ const FormRegister = () => {
   const refTab = useRef(null);
 
   function onSubmitForm(data: IFormData) {
-    GENERAL_REQUEST.sendDataFormRegister(METHOD.post, data, setCheckStatus);
+    GENERAL_REQUEST.sendDataFormRegister(METHOD.post, data, setCheckStatus)
+      .then((response: any) => console.log(response))
+      .catch((er) => console.error(er));
   }
 
   return (

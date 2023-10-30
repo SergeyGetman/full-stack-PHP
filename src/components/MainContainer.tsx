@@ -9,8 +9,12 @@ import { useNavigate } from "react-router-dom";
 import HeaderComponent from "./HeaderComponent";
 import FooterContent from "./FooterContent";
 
-const MainContainer: FC<IMainContainer> = ({ children, args }) => {
-  const { checkVisible } = args || {};
+const MainContainer: FC<IMainContainer> = ({ children }, ...args) => {
+  console.log("this is ARGS", args);
+
+  const { checkVisible }: any = args || {};
+
+  console.log("checkVisible", checkVisible);
   const navigate = useNavigate();
   const handleHome = () => {
     navigate("/");

@@ -3,6 +3,7 @@ import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import { TextFieldVariants } from "@mui/material";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 import { UseFormRegisterReturn } from "react-hook-form";
+import GeneralContent from "../components/forAutorizedUsers/GeneralContent";
 
 export interface INavigate {
   path: string;
@@ -88,7 +89,10 @@ export type IFormData = {
 
 export interface IMainContainer {
   children: ReactNode;
-  args?: Record<keyof ReactPropTypes, React.FC> | Record<string, any>;
+  arguments?:
+    | Record<keyof ReactPropTypes, React.FC>
+    | Record<string, any>
+    | boolean;
 }
 export interface IMainContent {
   children: ReactNode;
@@ -97,4 +101,8 @@ export interface IMainContent {
 export interface IAvtorizedGoogle {
   text: string;
   icon?: ReactComponentElement<any>;
+}
+
+export interface IGeneralContent {
+  name: string;
 }
