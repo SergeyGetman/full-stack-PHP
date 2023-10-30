@@ -15,7 +15,6 @@ import InputComponent from "./InputComponent";
 import MainContainer from "./MainContainer";
 import { GENERAL_REQUEST, METHOD } from "../api/general_request";
 import { useSelector } from "react-redux";
-import { AxiosResponse } from "axios";
 import { useNavigate } from "react-router-dom";
 
 const FormRegister = () => {
@@ -35,8 +34,12 @@ const FormRegister = () => {
     },
   });
 
-  const [checkStatus, setCheckStatus] = useState({ status: "" });
-  const notify = () => toast("Register Sussefully");
+  const [checkStatus, setCheckStatus] = useState({
+    status: "",
+    id: "",
+    data: {},
+  });
+  const notify = () => toast("Register Successfully");
 
   console.log("checkStatus222222", checkStatus);
 
@@ -62,6 +65,15 @@ const FormRegister = () => {
   useEffect(() => {
     setFocus("name");
   }, [setFocus]);
+
+  useEffect(() => {
+    if (checkStatus) {
+      const { data } = checkStatus;
+      if (data.status && data.id) {
+        navigate("test");
+      }
+    }
+  }, [checkStatus]);
 
   const refTab = useRef(null);
 
